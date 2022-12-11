@@ -24,7 +24,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route exact path='/' element = {<ANPList/>}/>
-          <Route exact path="/apm/:id_anp" element={<ANPDetail/>} />
+          <Route exact path='/anp/:id_anp' element={<ANPDetail/>} />
         </Routes>
       </BrowserRouter>
     

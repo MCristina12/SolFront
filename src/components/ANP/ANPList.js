@@ -43,7 +43,7 @@ export default function ANPList(){
                             <h5 className="card-title">{anp.nombre}</h5>
                             <img src={`${anp.imagen}`} className="card-img-top" alt="Img item"/>
                             <div className="card-body">
-                                <Link to={`/apm/${anp.id}`}>
+                                <Link to={"/anp/"+anp.id}>
                                     <button type="button" className="btn btn-primary">COMPRAR</button>
                                 </Link>
                                 <p className="card-text">{anp.precio}</p>
