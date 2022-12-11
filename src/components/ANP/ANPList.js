@@ -39,7 +39,7 @@ export default function ANPList(){
 
                     <div>
                         {anps.map((anp) => (
-                        <div className="card d-flex flex-column " style={{ width: 200 }} >
+                        <div className="card d-flex flex-column " style={{ width: 200 }} key = {anp.id} >
                             <h5 className="card-title">{anp.nombre}</h5>
                             <img src={`${anp.imagen}`} className="card-img-top" alt="Img item"/>
                             <div className="card-body">

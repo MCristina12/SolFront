@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 export default function ANPDetail(){
     const {id_anp} = useParams();
     const [loadingData, setLoadingData] = React.useState(false);
+    const [cantidad, setCantidad] = React.useState([1]);
     const [anp, setAPN] = React.useState({
         nombre : "",
         descripcion : "",
@@ -29,6 +30,10 @@ export default function ANPDetail(){
         }).catch(console.log)
     }
 
+    const handleChange = (event)=>{
+        setCantidad(event.target.value);  
+    }
+
     React.useEffect(() => {
         getAPNByID();
     }, []) 
@@ -40,7 +45,7 @@ export default function ANPDetail(){
                                 <strong>Loading...</strong>
                                 <div className="spinner-border ml-auto ms-3" role="status" aria-hidden="true"></div>
                             </div> : 
-                    <div>
+                    <div className="row">
                         <div className="col">
                             <img src={`${anp.imagen}`} className="img-fluid"></img>
                         </div>
@@ -52,16 +57,23 @@ export default function ANPDetail(){
                                     <p>Cantidad</p>    
                                 </div>
                                 <div className="col">
-                                    <input type="number" id="cant" name="cant" min="1" max="50" defaultValue={1} className="d-flex flex-column"></input>
+                                    <input 
+                                        type="number" 
+                                        id="cantidad" 
+                                        name="cantidad" 
+                                        value = {cantidad[0]}
+                                        className="d-flex flex-column"
+                                        onChange={handleChange}>    
+                                    </input>
                                 </div>
                                 <div className="col">
                                     <p>Importe total:</p>
                                 </div>
                                 <div className="col">
-                                    <p>{anp.precio}</p>
+                                    {cantidad*anp.precio}                                
                                 </div>     
                             </div>
-                            <button type="button" class="btn btn-success">Success</button>
+                            <button type="button" className="btn btn-success">PAGAR</button>
                         </div>
                     </div>
                 }
