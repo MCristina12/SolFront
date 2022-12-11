@@ -55,7 +55,7 @@ export default function ANPDetail(){
     }, []) 
 
     return(
-        <div>
+        <div className="d-inline-flex p-4 bg-success p-2 text-dark bg-opacity-25" >
             <div className="row">
                 {!loadingData ? <div className="d-flex align-items-center mt-3">
                                 <strong>Loading...</strong>
@@ -86,10 +86,13 @@ export default function ANPDetail(){
                                     <p>Importe total:</p>
                                 </div>
                                 <div className="col">
-                                    {cantidad*anp.precio}                                
+                                    {cantidad*anp.precio} PEN                               
                                 </div>     
                             </div>
-                            <button type="button" className="btn btn-success" onClick={sendPago}>PAGAR</button>
+                            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button" className="btn btn-success " onClick={sendPago}>PAGAR</button>
+                            </div>
+                    
 
                         </div>
                     </div>
