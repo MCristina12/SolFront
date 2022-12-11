@@ -9,10 +9,10 @@ import HomeDescp from './components/General/HomeDescp';
 import ANPList from './components/ANP/ANPList';
 import {  
   BrowserRouter, 
-  Switch, 
   Route,
   Routes} from "react-router-dom";
 import ANPDetail from './components/ANP/ANPDetail';
+import CompraFinal from './components/General/CompraFinal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,8 +23,9 @@ root.render(
     <div className="d-flex flex-column min-vh-100">
       <BrowserRouter>
         <Routes>
-          <Route exact path='/' element = {<ANPList/>}/>
-          <Route exact path='/anp/:id_anp' element={<ANPDetail/>} />
+          <Route exact path='/'            element={<ANPList/>}     />
+          <Route exact path='/anp/:id_anp' element={<ANPDetail/>}   />
+          <Route exact path='/finalizar'   element={<CompraFinal/>} />
         </Routes>
       </BrowserRouter>
     

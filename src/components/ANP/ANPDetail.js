@@ -2,9 +2,10 @@ import React from "react"
 import 'bootstrap/dist/css/bootstrap.css';
 import { useHistory, useParams } from "react-router-dom";
 import Axios  from "axios"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function ANPDetail(){
+    const nav = useNavigate();
     const {id_anp} = useParams();
     const [loadingData, setLoadingData] = React.useState(false);
     const [cantidad, setCantidad] = React.useState([1]);
@@ -41,6 +42,7 @@ export default function ANPDetail(){
             cantidad_boletos : cantidad
         }).then(res =>{
             console.log(res.data);
+            nav("/finalizar")
         }).catch(console.log)
     }
 
@@ -88,6 +90,7 @@ export default function ANPDetail(){
                                 </div>     
                             </div>
                             <button type="button" className="btn btn-success" onClick={sendPago}>PAGAR</button>
+
                         </div>
                     </div>
                 }
