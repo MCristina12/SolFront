@@ -3,6 +3,7 @@ import ANPItem from "./ANPItem.js";
 import React from "react"
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom'
+import HomeDescp from "../General/HomeDescp.js";
 
 
 export default function ANPList(){
@@ -29,6 +30,8 @@ export default function ANPList(){
     }, [])
 
     return(
+        <div>
+            <HomeDescp title="Listado"/>
         <div className="d-flex flex-wrap justify-content-center gap-2 my-5 mx-5">
             <div className="card-body d-flex flex-wrap">
                 {!loadingData ?
@@ -61,6 +64,7 @@ export default function ANPList(){
                     
                 }
             </div>
+        </div>
         </div>
     )
 }

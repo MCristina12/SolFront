@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useHistory, useParams } from "react-router-dom";
 import Axios  from "axios"
 import { Link, useNavigate } from "react-router-dom"
+import HomeDescp from "../General/HomeDescp";
 
 export default function ANPDetail(){
     const nav = useNavigate();
@@ -55,6 +56,8 @@ export default function ANPDetail(){
     }, []) 
 
     return(
+        <div>
+            <HomeDescp title = "Compra"></HomeDescp>
         <div className="d-inline-flex p-4 bg-success p-2 text-dark bg-opacity-25" >
             <div className="row">
                 {!loadingData ? <div className="d-flex align-items-center mt-3">
@@ -98,6 +101,7 @@ export default function ANPDetail(){
                     </div>
                 }
             </div>
+        </div>
         </div>
     )
 }
