@@ -30,7 +30,21 @@ export default function ANPDetail(){
         }).catch(console.log)
     }
 
-    const handleChange = (event)=>{
+    const sendPago = (event) =>{
+        event.preventDefault();
+        console.log(id_anp)
+        console.log(cantidad)
+        console.log(cantidad*anp.precio)
+        Axios.post("https://solback-production.up.railway.app/postPago",{
+            id_anp : id_anp,
+            total : cantidad*anp.precio,
+            cantidad_boletos : cantidad
+        }).then(res =>{
+            console.log(res.data);
+        }).catch(console.log)
+    }
+
+    const handleChangeCantidad = (event)=>{
         setCantidad(event.target.value);  
     }
 
@@ -63,7 +77,7 @@ export default function ANPDetail(){
                                         name="cantidad" 
                                         value = {cantidad[0]}
                                         className="d-flex flex-column"
-                                        onChange={handleChange}>    
+                                        onChange={handleChangeCantidad}>    
                                     </input>
                                 </div>
                                 <div className="col">
@@ -73,7 +87,7 @@ export default function ANPDetail(){
                                     {cantidad*anp.precio}                                
                                 </div>     
                             </div>
-                            <button type="button" className="btn btn-success">PAGAR</button>
+                            <button type="button" className="btn btn-success" onClick={sendPago}>PAGAR</button>
                         </div>
                     </div>
                 }
